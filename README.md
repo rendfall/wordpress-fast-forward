@@ -1,14 +1,19 @@
 #FastForward
+
 DevApp for Wordpress Theme.
 
 #Installation
+
 Upload `app` folder with all files into your theme folder.
 
 #Quick start
+
 Add these lines in top of `functions.php`.
-```
+
+```php
 require_once(TEMPLATEPATH. '/app/fastforward.php');
 ```
+
 so you can access static methods:
 * FastForward::Options()
 * FastForward::Menus()
@@ -18,10 +23,11 @@ so you can access static methods:
 * FastForward::PostTypes()
 * FastForward::Shortcodes()
 
-
 #Example configuration
+
 You can add some custom features:
-```
+
+```php
 require_once(TEMPLATEPATH. '/app/fastforward.php');
 require_once(TEMPLATEPATH. '/app/clipboard.php');
 
