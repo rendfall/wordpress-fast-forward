@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @example
+ * FastForward::Helpers()
+ *     ->renderImage(142, 'full');
+ */
 class FastForward_Helpers {
     public function renderImage($id, $size = 'thumbnail') {
         echo wp_get_attachment_image($id, $size);

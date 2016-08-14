@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @example
+ * FastForward::Posts()
+ *     ->getPosts(0, array('post_type' => 'post'));
+ */
 class FastForward_Posts {
     /**
      * Get all subpages (tree) with children, grandchildren and so.

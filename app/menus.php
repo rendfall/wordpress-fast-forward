@@ -1,8 +1,19 @@
 <?php 
 
+/**
+ * @example
+ * FastForward::Menus()
+ *     ->registerMenus(array(
+ *         'top_menu' => 'Main menu',
+ *         'sidebar_menu' => 'Side menu',
+ *         'footer_menu_1' => 'Footer menu',
+ *         'footer_menu_2' => 'Second footer menu',
+ *         'footer_menu_3' => 'Third footer menu'
+ *     ));
+ */
 class FastForward_Menus {
     /**
-     * Dynamically create new menus.
+     * Register new menus.
      **/
     public function registerMenus($menus) {
         register_nav_menus($menus);
@@ -11,10 +22,10 @@ class FastForward_Menus {
     }
 
     /**
-     * Dynamically choose menu by current language
+     * Choose menu by name (theme_location).
      **/
-    public function getMenu($name, $echo = true) {
-        $args = array(
+    public function getMenu($name, $args = array(), $echo = true) {
+        $args = wp_parse_args($args, array(
             'theme_location' => $name,
             'menu' => '',
             'container' => false,

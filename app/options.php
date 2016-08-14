@@ -1,5 +1,21 @@
 <?php
 
+/**
+ * @example
+ * FastForward::Options()
+ *    ->setTimeZone('Europe/Warsaw')
+ *    ->setTextDomain('FastForwardTextDomain')
+ *    ->addThemeSupport('post-thumbnails')
+ *    ->addThemeSupport('html5')
+ *    ->registerCss('assets/stylesheets/app')
+ *    ->registerJs('assets/javascripts/app')
+ *    ->addTagsToPages()
+ *    ->addCategoriesToPages()
+ *    ->allowUnattach()
+ *    ->removeAction('wp_head', 'wp_generator')
+ *    ->removeAction('wp_head', 'feed_links', 2)
+ *    ->removeAction('wp_head', 'feed_links_extra', 3);
+ */
 class FastForward_Options {
     private $scripts;
     private $styles;

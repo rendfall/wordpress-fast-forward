@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @example
+ * FastForward::Plugins()
+ *     ->registerPlugin('my_plugin');
+ */
 class FastForward_Plugins {
     /**
      * @return $this

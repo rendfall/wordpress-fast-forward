@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @example 
+ * FastForward::PostTypes()
+ *    ->registerPostType('product')
+ *    ->registerPostType('slider');
+ */
 class FastForward_PostTypes {
     /**
      * @return $this

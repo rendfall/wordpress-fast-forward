@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * @example
+ * $FF['post'] = FastForward::Post();
+ * $title = $FF['post']->getTitle();
+ * $excerpt = $FF['post']->getExcerpt();
+ * $content = $FF['post']->getContent();
+ * $link = get_permalink($post->ID);
+ * $date = $FF['post']->getDate();
+ * $thumb = $FF['post']->getThumbnail();
+ */
 class FastForward_Post {
     /**
      * Get thumbnail or first attached image.

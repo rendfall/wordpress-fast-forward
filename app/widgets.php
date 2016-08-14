@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @example
+ * FastForward::Widgets()
+ *    ->registerSidebar('footer-3-cols')
+ *    ->registerWidget('foot-column');
+ */
 class FastForward_Widgets {
     /**
      * @return $this

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @example
+ * FastForward::Shortcodes()
+ *    ->registerShortcode('google-maps')
+ */
 class FastForward_Shortcodes {
     /**
      * @return $this
