@@ -2,7 +2,7 @@
 
 class FastForward {
     /**
-     * String the version of FastForward.
+     * String Version of FastForward.
      * 
      * @var string
      */
@@ -16,12 +16,12 @@ class FastForward {
     protected static $_cache = array();
 
     /**
-     * Helper: Build classname from filename.
+     * Build classname from filename.
      * 
      * @param string $filename
      * @return string
      */
-    protected static function fileToClassName($filename){
+    protected static function fileToClassName($filename) {
         return implode('', array_map('ucfirst', explode('-', $filename)));
     }
 
@@ -29,9 +29,9 @@ class FastForward {
      * Build the required object instance.
      * 
      * @param string  $object
-     * @param boolean $fresh - whether to get a fresh copy; will not be cached and won't override current copy in cache.
+     * @param boolean $fresh Whether to get a fresh copy; will not be cached and won't override current copy in cache.
      */
-    protected static function factory($object, $fresh = false){
+    protected static function factory($object, $fresh = false) {
         if (isset(self::$_cache[$object]) && !$fresh) {
             return self::$_cache[$object];
         }
@@ -52,35 +52,35 @@ class FastForward {
         return self::$_cache[$object];
     }
 
-    public static function Options($fresh = false){
+    public static function Options($fresh = false) {
         return self::factory('options', $fresh);
     }
 
-    public static function Posts($fresh = false){
+    public static function Posts($fresh = false) {
         return self::factory('posts', $fresh);
     }
 
-    public static function Post($fresh = false){
+    public static function Post($fresh = false) {
         return self::factory('post', $fresh);
     }
 
-    public static function Menus($fresh = false){
+    public static function Menus($fresh = false) {
         return self::factory('menus', $fresh);
     }
 
-    public static function Helpers($fresh = false){
+    public static function Helpers($fresh = false) {
         return self::factory('helpers', $fresh);
     }
 
-    public static function PostTypes($fresh = false){
+    public static function PostTypes($fresh = false) {
         return self::factory('posttypes', $fresh);
     }
 
-    public static function Widgets($fresh = false){
+    public static function Widgets($fresh = false) {
         return self::factory('widgets', $fresh);
     }
 
-    public static function Shortcodes($fresh = false){
+    public static function Shortcodes($fresh = false) {
         return self::factory('shortcodes', $fresh);
     }
 }
