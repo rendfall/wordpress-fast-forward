@@ -218,4 +218,24 @@ class FastForward_Options {
             remove_submenu_page('tools.php', 'unattach');
         }
     }
+
+    function removeAction($tag, $name, $priority = 10) {
+        remove_action($tag, $name, $priority);
+        return $this;
+    }
+
+    function removeFilter($tag, $name, $priority = 10) {
+        remove_filter($tag, $name, $priority);
+        return $this;
+    }
+
+    // example: add_image_size('custom_name', 355, 240, true);
+    function addImageSizes($sizeArr) {
+        foreach ($sizeArr as $size) {
+            $crop = isset($size[3]) ? $size[3] : true;
+            add_image_size($size[0], $size[1], $size[2], $crop);
+        }
+
+        return $this;
+    }
 }
