@@ -132,9 +132,9 @@ class FastForward_Options {
 
     public function addGoogleFont($args) {
         $label = str_replace('+', '-', strtok($args['family'], ':'));
-        $basePath = (is_ssl() ? 'https' : 'http') . '://fonts.googleapis.com/css');
+        $basePath = (is_ssl() ? 'https' : 'http') . '://fonts.googleapis.com/css';
 
-        wp_register_style($label, add_query_arg($args, $basePath, array(), null);
+        wp_register_style($label, add_query_arg($args, $basePath, array(), null));
         wp_enqueue_style($label);
 
         return $this;

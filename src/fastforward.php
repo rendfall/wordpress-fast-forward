@@ -28,28 +28,28 @@ class FastForward {
     /**
      * Build the required object instance.
      * 
-     * @param string  $object
+     * @param string $name
      * @param boolean $fresh Whether to get a fresh copy; will not be cached and won't override current copy in cache.
      */
-    protected static function factory($object, $fresh = false) {
-        if (isset(self::$_cache[$object]) && !$fresh) {
-            return self::$_cache[$object];
+    protected static function factory($name, $fresh = false) {
+        if (isset(self::$_cache[$name]) && !$fresh) {
+            return self::$_cache[$name];
         }
 
-        $class = get_called_class() . '_' . self::fileToClassName($object);
+        $class = get_called_class() . '_' . self::fileToClassName($name);
         $class = str_replace('/', '_', $class);
 
         if (!class_exists($class)) {
-            require_once locate_template(__FILE__ . '/' . $object . '.php');
+            require_once(dirname(__FILE__) . "/{$name}.php");
         }
 
         if ($fresh) {
             return new $class; 
         }
         
-        self::$_cache[$object] = new $class;
+        self::$_cache[$name] = new $class;
 
-        return self::$_cache[$object];
+        return self::$_cache[$name];
     }
 
     public static function Options($fresh = false) {

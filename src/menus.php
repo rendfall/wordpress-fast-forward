@@ -37,7 +37,7 @@ class FastForward_Menus {
             'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>', // Remove UL, so you have to add this when echoing 
             'depth' => 0,
             'walker' => '' // Interesting one, but in most common cases useless. Read: http://codex.wordpress.org/Class_Reference/Walker
-        );
+        ));
         $menu = wp_nav_menu($args);
 
         if ($echo) {

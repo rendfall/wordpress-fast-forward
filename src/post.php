@@ -175,7 +175,7 @@ class FastForward_Post {
         }
 
         global $post;
-        $ancestors = get_post_ancestors($post->ID)
+        $ancestors = get_post_ancestors($post->ID);
 
         if(!$ancestors) {
             return false;
