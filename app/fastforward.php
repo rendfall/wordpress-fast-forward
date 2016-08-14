@@ -76,6 +76,10 @@ class FastForward {
         return self::factory('posttypes', $fresh);
     }
 
+    public static function Plugins($fresh = false) {
+        return self::factory('plugins', $fresh);
+    }
+
     public static function Widgets($fresh = false) {
         return self::factory('widgets', $fresh);
     }
