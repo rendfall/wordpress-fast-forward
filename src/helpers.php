@@ -40,17 +40,4 @@ class FastForward_Helpers {
 
         return $results[0];
     }
-
-    public function help() {
-        global $FastForward;
-        $methods = array();
-
-        foreach ($FastForward as $obj) {
-            $methods[get_class($obj)] = get_class_methods($obj);
-        }
-
-        echo '<pre>';
-        print_r($methods);
-        echo '</pre>';
-    }
 }
