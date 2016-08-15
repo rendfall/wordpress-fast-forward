@@ -52,7 +52,7 @@ class FastForward_Helpers {
 
         // There is no provider on whitelist or it is raw file.
         if (!$embedCode) {
-            $embedCode = "<video src=\"{$url}\" autoplay controls></video>";
+            $embedCode = "<video src=\"{$url}\" controls></video>";
         }
 
         if ($echo) {
