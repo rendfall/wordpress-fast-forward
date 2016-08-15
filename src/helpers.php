@@ -40,4 +40,26 @@ class FastForward_Helpers {
 
         return $results[0];
     }
+
+    /**
+     * Render video from provider or raw video file.
+     * 
+     * @param string
+     * @param  boolean $echo
+     */
+    public function renderVideo($url, $echo = true) {
+        $embedCode = wp_oembed_get($url);
+
+        // There is no provider on whitelist or it is raw file.
+        if (!$embedCode) {
+            $embedCode = "<video src=\"{$url}\" autoplay controls></video>";
+        }
+
+        if ($echo) {
+            echo $embedCode;
+            return true;
+        } else {
+            return $embedCode;
+        }
+    }
 }
