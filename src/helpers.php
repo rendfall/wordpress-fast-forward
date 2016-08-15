@@ -31,6 +31,16 @@ class FastForward_Helpers {
         return $set;
     }
 
+    public function getSinglePost($args) {
+        $args = wp_parse_args($args, array(
+            'posts_per_page' => 1
+        ));
+
+        $results = get_pages($args);
+
+        return $results[0];
+    }
+
     public function help() {
         global $FastForward;
         $methods = array();
