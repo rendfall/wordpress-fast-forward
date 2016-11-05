@@ -76,4 +76,8 @@ class FastForward_Helpers {
 
         return $attachment[0]; 
     }
+
+    public function isStringUrl($str) {
+        return (filter_var($str, FILTER_VALIDATE_URL));
+    }
 }

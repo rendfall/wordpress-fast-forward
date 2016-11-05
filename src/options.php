@@ -73,9 +73,14 @@ class FastForward_Options {
 
         $styles = is_array($styles) ? $styles : array($styles);
 
-        foreach ($styles as $file) {
-            $label = str_replace(".", "-", basename($file));
-            $path = get_template_directory_uri().'/'.ltrim($file, '/') . '.css';
+        foreach ($styles as $label => $file) {
+            // $label = str_replace(".", "-", basename($file));
+
+            if (FastForward::Helpers->isStringUrl($file)) {
+                $path = esc_url_raw($file . '.css');
+            } else {
+                $path = get_template_directory_uri().'/'.ltrim($file, '/') . '.css';
+            }
 
             $this->styles[] = array(
                 'label' => $label, 
@@ -114,7 +119,12 @@ class FastForward_Options {
 
         foreach ($scripts as $file) {
             $label = str_replace(".", "-", basename($file));
-            $path = get_template_directory_uri() . '/' . ltrim($file, '/') . '.js';
+
+            if (FastForward::Helpers->isStringUrl($file)) {
+                $path = esc_url_raw($file. '.js');
+            } else {
+                $path = get_template_directory_uri() . '/' . ltrim($file, '/') . '.js';
+            }
     
             $this->scripts[] = array(
                 'label' => $label, 
@@ -129,7 +139,6 @@ class FastForward_Options {
         return $this;
     }
 
-
     public function addGoogleFont($args) {
         $label = str_replace('+', '-', strtok($args['family'], ':'));
         $basePath = (is_ssl() ? 'https' : 'http') . '://fonts.googleapis.com/css';
@@ -139,7 +148,6 @@ class FastForward_Options {
 
         return $this;
     }
-
 
     // TODO(rendfall): clean that shit below...
     public function addTagsToPages() {
