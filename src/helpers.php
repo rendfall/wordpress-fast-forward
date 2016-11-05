@@ -50,6 +50,10 @@ class FastForward_Helpers {
     public function renderVideo($url, $echo = true) {
         $embedCode = wp_oembed_get($url);
 
+        if (!$url) {
+            return false;
+        }
+
         // There is no provider on whitelist or it is raw file.
         if (!$embedCode) {
             $embedCode = "<video src=\"{$url}\" controls></video>";
@@ -61,5 +65,15 @@ class FastForward_Helpers {
         } else {
             return $embedCode;
         }
+    }
+
+    public function getImageByUrl($url) {
+        global $wpdb;
+
+        $attachment = $wpdb->get_col($wpdb->prepare(
+            "SELECT ID FROM $wpdb->posts WHERE guid='%s';", $url 
+        ));
+
+        return $attachment[0]; 
     }
 }

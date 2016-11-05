@@ -17,7 +17,11 @@ class FastForward_Post {
     public function getThumbnail($firstImage = false) {
         global $post;
         $thumbID = get_post_thumbnail_id($post->ID);
-        return get_post($thumbID);
+
+        if ($thumbID) {
+            $result = get_post($thumbID);
+        }
+        return $result;
     }
 
     /**

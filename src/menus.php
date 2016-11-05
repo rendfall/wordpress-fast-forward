@@ -47,4 +47,11 @@ class FastForward_Menus {
             return $menu;
         }
     }
+
+    public function getMenuItems($name, $args = array()) {
+        $locations = get_nav_menu_locations();
+        $menuID = $locations[$name];
+
+        return wp_get_nav_menu_items($menuID, $args);
+    }
 }
